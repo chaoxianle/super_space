@@ -1,0 +1,68 @@
+
+
+  ========= 测试开始 : 20220704_095304 =========
+
+
+
+>>> cases\app\api_automation\api_blind_box\
+
+[ suite setup ] cases\app\api_automation\api_blind_box\
+新增系列
+{
+    "code": -1,
+    "data": null,
+    "msg": "没有访问权限"
+}
+获取所有系列
+suite setup fail | Object of type Response is not JSON serializable 
+Traceback:
+  File "cases\app\api_automation\api_blind_box\__st__.py", line 22, in suite_setup
+    INFO(json.dumps(admin.getSeries(None), ensure_ascii=False, indent=4))
+  File "C:\tool\python\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\tool\python\lib\json\encoder.py", line 201, in encode
+    chunks = list(chunks)
+  File "C:\tool\python\lib\json\encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "C:\tool\python\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+
+
+
+>>> cases\app\api_automation\api_compose\api_compose.py
+
+* 成功合成三国风云史诗藏品  -  2022-07-04 09:53:04
+
+  [ case execution steps ]
+  ABORT   Expecting value: line 1 column 1 (char 0) 
+Traceback:
+  File "C:\tool\python\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\tool\python\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\tool\python\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\tool\PycharmObject\super_space\venv\lib\site-packages\hytest\utils\runner.py", line 162, in _exec_cases
+    try:case.execRet='pass';case.teststeps();signal.case_result(case)
+  File "cases\app\api_automation\api_compose\api_compose.py", line 12, in teststeps
+    composeList = user.getNftComposeList().json()
+  File "C:\tool\PycharmObject\super_space\venv\lib\site-packages\requests\models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+
+>>> cases\app\api_automation\api_login\api_login.py
+
+* 正确的用户名和密码 Login_001  -  2022-07-04 09:53:05
+
+  [ case execution steps ]
+
+-- 第 1 步 -- 使用已注册手机号18193458090，正确密码123456，类型选择用户名密码进行登录 
+
